@@ -142,6 +142,10 @@ li {
   list-style: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .df {
   display: flex;
 }
@@ -285,4 +289,31 @@ li {
 
 .-dn {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .boxcotain {
+    flex-direction: row;
+    width: 50%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 568px) {
+  .boxcotain {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.boxcotain .box {
+  width: 20%;
+  text-align: center;
+}
+@media (max-width: 568px) {
+  .boxcotain .box {
+    width: 100%;
+    margin-top: 10px;
+  }
 }/*# sourceMappingURL=all.css.map */

@@ -1,5 +1,5 @@
 @mixin pad {
-  @media (max-widht:768px) {
+  @media (max-width:768px) {
     @content
   }
 }
@@ -7,7 +7,7 @@
 ;
 
 @mixin mobile {
-  @media (max-widht:568px) {
+  @media (max-width:568px) {
     @content
   }
 }
