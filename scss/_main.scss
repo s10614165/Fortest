@@ -1,26 +1,75 @@
-.boxcotain {
-  @include pad {
-    flex-direction: row;
-    width: 50%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    justify-content: space-around;
+.wrap {
+  max-width: 1000px;
+  background-color: $white;
+
+
+  .header {
+    background-color: $primary;
+    width: 100%;
+    color: $white;
+
   }
 
-  @include mobile {
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
+  .articl {
 
+    .container {
+      width: 30%;
+
+      @include pad {
+        width: 100%;
+        order: 2;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .apple {
+        background-color: $secondary;
+
+        @include pad {
+          width: 30%;
+        }
+
+        @include mobile {
+          width: 100%;
+        }
+      }
+
+      .piapple {
+        background-color: $tertiary;
+
+        @include pad {
+          width: 60%;
+        }
+
+        @include mobile {
+          width: 100%;
+        }
+      }
+    }
+
+    .PPAP {
+      width: 65%;
+      background-color: $quaternary;
+
+      @include pad {
+        width: 100%;
+        order: 1;
+      }
+    }
+  }
+
+  .footer {
+    color: $white;
+    border-radius: 10px;
+    background-color: $primary;
   }
 
   .box {
-    width: 20%;
-    text-align: center;
-
-    @include mobile {
-      width: 100%;
-      margin-top: 10px;
-    }
+    margin-top: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
   }
 }

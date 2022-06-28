@@ -1,3 +1,9 @@
+$primary: #203744;
+$secondary: #f5b199;
+$tertiary: #8491c3;
+$quaternary: #f7b977;
+$white: #ffffff;
+
 @mixin pad {
   @media (max-width:768px) {
     @content
