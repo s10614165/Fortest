@@ -1,75 +1,198 @@
 .wrap {
-  max-width: 1000px;
-  background-color: $white;
+  max-width: 1920px;
 
 
-  .header {
-    background-color: $primary;
+  .c-banner {
+    background: no-repeat url('../img/imgfortest/banner.png');
+    background-size: cover;
+    background-position: top center;
     width: 100%;
-    color: $white;
+    height: 985px;
+    box-sizing: border-box;
+
+    @include pad {}
+
+    .content {
+      color: $white;
+      box-sizing: border-box;
+
+      .title {
+        font-size: 80px;
+        margin: 32px 0px;
+      }
+
+      .platform {
+        margin-top: 40px;
+
+        a {
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+
+        }
+      }
+    }
 
   }
 
-  .articl {
+  .c-about {
+    margin: 56px 0px;
 
-    .container {
+    .content {
+      box-sizing: border-box;
+      width: 40%;
+
+      .title {
+        font-size: 64px;
+        margin-bottom: 40px;
+
+
+      }
+
+      .about-img {
+        object-fit: contain;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .aboutul {
+        border-top: 1px solid black;
+        margin-top: 30px;
+
+        li {
+          margin-top: 20px;
+
+          &::before {
+            content: "\2022";
+            color: #891818;
+            font-weight: bold;
+            display: inline-block;
+            width: 1rem;
+            margin-left: -2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .c-brand {
+    color: $white;
+    background-color: black;
+
+    .brandtext {
+      margin-bottom: 56px;
+
+      .title {
+        font-size: 64px;
+        padding-top: 56px;
+      }
+
+      .h3 {
+        margin: 20px 0px 32px;
+      }
+    }
+
+    .brandimg-1 {
+      width: 80%;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    .imgarea {
+      padding-bottom: 100px;
+
+      @include pad {
+        width: 80%;
+      }
+
+      .brandimg-2 {
+        width: 25%;
+
+        @include pad {
+          width: 100%;
+        }
+      }
+
+      .brandimg-3 {
+        width: 25%;
+
+        @include pad {
+          width: 100%;
+          margin-top: 50px;
+        }
+      }
+    }
+
+  }
+
+  .c-other {
+    @include pad {
+      margin-top: 30px;
+    }
+
+    .title {
+      font-size: 64px;
+    }
+
+    .h4 {
+      margin: 30px 0px;
+    }
+
+    .imgarea {
+      width: 60%;
+    }
+
+    .card {
+      width: 30%;
+      object-fit: contain;
+
+      @include pad {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .card:nth-child(4) {
+      width: 47%;
+
+      @include pad {
+        width: 100%;
+      }
+    }
+
+    .card:nth-child(5) {
+      width: 47%;
+
+      @include pad {
+        width: 100%;
+      }
+    }
+  }
+
+  .c-footer {
+    background-color: black;
+    color: $white;
+
+    .textarea {
+      padding: 64px 0px;
       width: 30%;
 
       @include pad {
-        width: 100%;
-        order: 2;
-        flex-direction: row;
-        justify-content: space-between;
+        width: 50%;
       }
 
-      .apple {
-        background-color: $secondary;
-
-        @include pad {
-          width: 30%;
-        }
-
-        @include mobile {
-          width: 100%;
-        }
+      .title {
+        font-size: 64px;
       }
 
-      .piapple {
-        background-color: $tertiary;
-
-        @include pad {
-          width: 60%;
-        }
-
-        @include mobile {
-          width: 100%;
-        }
+      .mail {
+        margin: 20px 0px;
       }
+
+
     }
-
-    .PPAP {
-      width: 65%;
-      background-color: $quaternary;
-
-      @include pad {
-        width: 100%;
-        order: 1;
-      }
-    }
-  }
-
-  .footer {
-    color: $white;
-    border-radius: 10px;
-    background-color: $primary;
-  }
-
-  .box {
-    margin-top: 10px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
   }
 }
