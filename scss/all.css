@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,700&display=swap");
 html,
 body,
 div,
@@ -264,7 +265,7 @@ li {
 }
 
 .wrap {
-  font-family: "Noto Sans TC";
+  font-family: "Roboto", sans-serif;
 }
 
 .r {
@@ -408,10 +409,8 @@ li {
     margin-top: 50px;
   }
 }
-@media (max-width: 768px) {
-  .wrap .c-other {
-    margin-top: 30px;
-  }
+.wrap .c-other {
+  padding-top: 40px;
 }
 .wrap .c-other .title {
   font-size: 64px;
@@ -421,6 +420,11 @@ li {
 }
 .wrap .c-other .imgarea {
   width: 60%;
+}
+@media (max-width: 768px) {
+  .wrap .c-other .imgarea {
+    width: 50%;
+  }
 }
 .wrap .c-other .card {
   width: 30%;

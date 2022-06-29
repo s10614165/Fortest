@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,700&display=swap');
+
 .wrap {
   max-width: 1920px;
 
@@ -10,7 +12,7 @@
     height: 985px;
     box-sizing: border-box;
 
-    @include pad {}
+
 
     .content {
       color: $white;
@@ -135,12 +137,13 @@
   }
 
   .c-other {
-    @include pad {
-      margin-top: 30px;
-    }
+    padding-top: 40px;
+
+
 
     .title {
       font-size: 64px;
+
     }
 
     .h4 {
@@ -150,6 +153,9 @@
     .imgarea {
       width: 60%;
 
+      @include pad {
+        width: 50%;
+      }
 
     }
 

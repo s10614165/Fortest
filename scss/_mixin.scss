@@ -3,6 +3,7 @@ $secondary: #f5b199;
 $tertiary: #8491c3;
 $quaternary: #f7b977;
 $white: #ffffff;
+$font: 'Roboto';
 
 @mixin pad {
   @media (max-width:768px) {
