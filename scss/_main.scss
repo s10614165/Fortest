@@ -94,6 +94,7 @@
 
     .brandimg-1 {
       width: 30%;
+      height: auto;
       display: block;
       margin-bottom: 40px;
 
@@ -110,7 +111,9 @@
       }
 
       .brandimg-2 {
+        display: inline-block;
         width: 25%;
+        height: auto;
 
         @include pad {
           width: 100%;
@@ -118,7 +121,9 @@
       }
 
       .brandimg-3 {
+        display: inline-block;
         width: 25%;
+        height: 100%;
 
         @include pad {
           width: 100%;
