@@ -370,6 +370,7 @@ li {
 }
 .wrap .c-brand .brandimg-1 {
   width: 30%;
+  height: auto;
   display: block;
   margin-bottom: 40px;
 }
@@ -387,7 +388,9 @@ li {
   }
 }
 .wrap .c-brand .imgarea .brandimg-2 {
+  display: inline-block;
   width: 25%;
+  height: auto;
 }
 @media (max-width: 768px) {
   .wrap .c-brand .imgarea .brandimg-2 {
@@ -395,7 +398,9 @@ li {
   }
 }
 .wrap .c-brand .imgarea .brandimg-3 {
+  display: inline-block;
   width: 25%;
+  height: 100%;
 }
 @media (max-width: 768px) {
   .wrap .c-brand .imgarea .brandimg-3 {
