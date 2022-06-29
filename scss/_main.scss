@@ -93,9 +93,13 @@
     }
 
     .brandimg-1 {
-      width: 80%;
+      width: 30%;
       display: block;
       margin-bottom: 40px;
+
+      @include pad {
+        width: 80%;
+      }
     }
 
     .imgarea {
@@ -140,14 +144,24 @@
 
     .imgarea {
       width: 60%;
+
+
     }
 
     .card {
       width: 30%;
       object-fit: contain;
 
+      .h4 {
+        @include pad {
+          font-size: 24px;
+
+        }
+      }
+
       @include pad {
         width: 100%;
+
       }
 
       img {
