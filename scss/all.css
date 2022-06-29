@@ -334,6 +334,9 @@ li {
   font-size: 64px;
   margin-bottom: 40px;
 }
+.wrap .c-about .content .birthday {
+  margin: 20px 0px;
+}
 .wrap .c-about .content .about-img {
   -o-object-fit: contain;
      object-fit: contain;
@@ -348,12 +351,15 @@ li {
   margin-top: 20px;
 }
 .wrap .c-about .content .aboutul li::before {
-  content: "•";
-  color: #891818;
-  font-weight: bold;
+  content: "";
+  position: relative;
+  border: 1px solid #891818;
+  background-color: #891818;
   display: inline-block;
-  width: 1rem;
-  margin-left: -2rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 12px;
 }
 .wrap .c-brand {
   color: #ffffff;
