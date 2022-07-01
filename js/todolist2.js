@@ -29,67 +29,86 @@ listinput.addEventListener('keypress', function (e) {
     } else {
       axios.post('https://fathomless-brushlands-42339.herokuapp.com/todo1', {
         content: listinput.value, Ischeckcd: false
+      }).then(function () {
+        listinput.value = '';
+        init();
       })
-      listinput.value = '';
-      init();
 
-      // addlist(data);
+
+      // addlist(data); 
     }
   }
 })
 listul.addEventListener("click", function (e) {
   if (e.target.getAttribute("class") === 'vector') {
-    let num = e.target.getAttribute("data-num");
-    data.splice(num, 1);
-    addlist(data);
+    let num = parseInt(e.target.getAttribute("data-num"));
+    num
+    console.log(num + 1)
+    axios.delete(`https://fathomless-brushlands-42339.herokuapp.com/todo1/${num + 1}`, {
+    }).then(function () {
+      init();
+    })
+
   };
   // 刪除資料
   if (e.target.getAttribute("class") == 'donebox') {
     // console.log(e.target.getAttribute("class"));
     const checkbox = document.querySelectorAll(".donebox");
     // console.log(num);
+    // console.log(data);
     data.forEach(function (item, index) {
       if (checkbox[index].checked === true) {
-        item.Ischeck = true;
+
+        axios.patch(`https://fathomless-brushlands-42339.herokuapp.com/todo1/${item.id}`, {
+          Ischeckcd: true
+        }).then(function () {
+
+          init();
+        })
         return
       } else if (checkbox[index].checked === false) {
-        // data.push(item[num].Ischeck = "");
-        item.Ischeck = false;
+        axios.patch(`https://fathomless-brushlands-42339.herokuapp.com/todo1/${item.id}`, {
+          Ischeckcd: false
+        }).then(function () {
+
+          init();
+        })
+
       }
     })
-    console.log(data)
-    addlist(data);
+    // console.log(data)
+    // addlist(data);
     // console.log(data);
   }
   // 增加斜線 完成
 })
 divtitle.addEventListener("click", function (e) {
-  console.log(e.target.getAttribute('id'));
+  // console.log(e.target.getAttribute('id'));
   if (e.target.getAttribute('id') === 'listAll') {
-    getrespons(data)
-    console.log(data);
-    addlist(data);
-  } else if (e.target.getAttribute('id') === 'listFinsh') {
 
+    init();
+  } else if (e.target.getAttribute('id') === 'listFinsh') {
+    // console.log(data);
     let finshdata = [];
     data.forEach(function (item, index) {
 
-      if (item.Ischeck === true) {
+      if (item.Ischeckcd === true) {
         finshdata.push(item);
 
       };
-
+      // console.log(finshdata);
     })
     addlist(finshdata);
+    todonum.textContent = `完成${finshdata.length}個代辦事項`;
   }
   else if (e.target.getAttribute('id') === 'listTodo') {
     let tododata = [];
     data.forEach(function (item, index) {
       // console.log(item);
 
-      if (item.Ischeck === false) {
+      if (item.Ischeckcd === false) {
         tododata.push(item);
-        console.log(tododata);
+
 
       };
 
@@ -99,8 +118,16 @@ divtitle.addEventListener("click", function (e) {
   }
 })
 cleanbtn.addEventListener('click', function () {
-  data = [];
-  addlist(data);
+  data.forEach(function (item, index) {
+    if (item.Ischeckcd === true) {
+      axios.delete(`https://fathomless-brushlands-42339.herokuapp.com/todo1/${item.id}`, {
+      }).then(function () {
+
+        init();
+      })
+    }
+  })
+
 })
 // 從input 新增
 
@@ -108,12 +135,13 @@ cleanbtn.addEventListener('click', function () {
 function addlist(ary) {
   let str = '';
   let finshdata = 0;
+  let dodata = 0;
   ary.forEach(function (item, index) {
-    console.log(item.content);
-    if (item.Ischeck) {
+
+    if (item.Ischeckcd) {
       str += `<li class="listli"><input type="checkbox" name="" class="donebox" id="donebox" data-num=${index} checked=checked> <label for="" class="lilabel">${item.content}</label> <input type="button" value=""
               class= "vector" data-num=${index}></li >`;
-
+      dodata++
 
     } else {
       str += `<li class="listli"><input type="checkbox" name="" class="donebox" id="donebox" data-num=${index}><label  class="lilabel">${item.content}</label> <input type="button" value=""
@@ -163,7 +191,7 @@ function init() {
   axios.get('https://fathomless-brushlands-42339.herokuapp.com/todo1')
     .then(function (response) {
       data = response.data;
-      console.log(data);
+      // console.log(data);
       addlist(data);
     });
 }
