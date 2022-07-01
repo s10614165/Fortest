@@ -12,13 +12,17 @@ init();
 addbtn.addEventListener("click", function (e) {
   if (listinput.value === '') {
   } else {
+
     axios.post('https://fathomless-brushlands-42339.herokuapp.com/todo1', {
       content: listinput.value, Ischeckcd: false
+    }).then(function () {
+      listinput.value = '';
+      init();
     })
-    listinput.value = '';
-    getrespons(data)
-    // console.log(data);
-    addlist(data);
+
+
+    // addlist(data); 
+
 
   }
 })
