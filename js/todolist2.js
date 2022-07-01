@@ -46,12 +46,17 @@ listinput.addEventListener('keypress', function (e) {
 listul.addEventListener("click", function (e) {
   if (e.target.getAttribute("class") === 'vector') {
     let num = parseInt(e.target.getAttribute("data-num"));
-    num
-    console.log(num + 1)
-    axios.delete(`https://fathomless-brushlands-42339.herokuapp.com/todo1/${num + 1}`, {
+    // console.log(num);
+    // console.log(data);
+    // console.log(data.id);
+    // console.log(data[num].id);
+
+    axios.delete(`https://fathomless-brushlands-42339.herokuapp.com/todo1/${data[num].id}`, {
     }).then(function () {
       init();
     })
+
+
 
   };
   // 刪除資料
