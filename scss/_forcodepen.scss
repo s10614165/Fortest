@@ -1,0 +1,49 @@
+.product-list {
+  display: flex;
+  justify-content: center;
+
+  .item {
+    width: 300px;
+    background: #fef4f4;
+    margin: 0 10px;
+    text-align: center;
+  }
+
+  .img {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .name {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #000;
+  }
+
+  .brand {
+    margin-bottom: 16px;
+  }
+
+  .price {
+    margin-bottom: 16px;
+  }
+
+  .like {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 16px;
+    color: #e6b422;
+    font-weight: bold;
+  }
+
+  .cart {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 16px;
+    color: #e6b422;
+    font-weight: bold;
+  }
+}
