@@ -70,7 +70,7 @@ loginbtn.addEventListener("click", () => {
 
     alert(errordata.response.data.message);
   }).then(function () {
-    location.replace('../todolistlogo.html');
+    location.href = '../todolistlogo.html';
   })
 
 
