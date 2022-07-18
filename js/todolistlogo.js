@@ -33,8 +33,11 @@ loginbtn.addEventListener("click", () => {
   }
   ).then((response) => {
     let data = response;
-    let authorization = data.headers.authorization
-    let nickaname = data.headers.nickaname
+    console.log(data);
+    let authorization = data.headers.authorization;
+    console.log(authorization)
+    let nickaname = data.data.nickname;
+    console.log(nickaname)
     localStorage.setItem('authorization', authorization)
     localStorage.setItem('nickname', nickaname)
     alert(data.data.message);

@@ -11,7 +11,8 @@ const nickaname = document.querySelector('.login-name')
 console.log(nickaname);
 
 let authorization = localStorage.getItem('authorization');
-let nicname = localStorage.getItem('nickaname');
+let nicname = localStorage.getItem('nickname');
+console.log(nicname);
 
 
 // 登入檢查是否登入狀態
