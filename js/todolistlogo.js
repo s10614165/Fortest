@@ -34,7 +34,9 @@ loginbtn.addEventListener("click", () => {
   ).then((response) => {
     let data = response;
     let authorization = data.headers.authorization
+    let nickaname = data.headers.nickaname
     localStorage.setItem('authorization', authorization)
+    localStorage.setItem('nickname', nickaname)
     alert(data.data.message);
     location.href = '../todolistjwt.html';
 

@@ -7,8 +7,12 @@ const divtitle = document.querySelector('.c-listtitle');
 const todonum = document.querySelector('.todonum');
 const cleanbtn = document.querySelector('.cleanfinishbtn');
 const singoutbtn = document.querySelector('.logooutbtn');
+const nickaname = document.querySelector('.login-name')
+console.log(nickaname);
 
-let authorization = localStorage.getItem('authorization')
+let authorization = localStorage.getItem('authorization');
+let nicname = localStorage.getItem('nickaname');
+
 
 // 登入檢查是否登入狀態
 axios.get('https://todoo.5xcamp.us/check', {
@@ -16,6 +20,7 @@ axios.get('https://todoo.5xcamp.us/check', {
     Authorization: `${authorization}`
   }
 }).then(() => {
+  nickaname.textContent = `${nicname}的代辦`
   init()
 })
   .catch(() => {
