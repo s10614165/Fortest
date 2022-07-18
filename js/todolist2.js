@@ -7,11 +7,12 @@ const divtitle = document.querySelector('.c-listtitle');
 const todonum = document.querySelector('.todonum');
 const cleanbtn = document.querySelector('.cleanfinishbtn');
 // console.log(todonum);
-// 綁定
+
 init();
 addbtn.addEventListener("click", function (e) {
   if (listinput.value === '') {
-  } else {
+  }
+  else {
 
     axios.post('https://fathomless-brushlands-42339.herokuapp.com/todo1', {
       content: listinput.value, Ischeckcd: false
@@ -85,25 +86,20 @@ listul.addEventListener("click", function (e) {
 
       }
     })
-    // console.log(data)
-    // addlist(data);
-    // console.log(data);
   }
   // 增加斜線 完成
 })
 divtitle.addEventListener("click", function (e) {
-  // console.log(e.target.getAttribute('id'));
   if (e.target.getAttribute('id') === 'listAll') {
 
     init();
   } else if (e.target.getAttribute('id') === 'listFinsh') {
     // console.log(data);
     let finshdata = [];
-    data.forEach(function (item, index) {
-
+    data.forEach(function (item) {
       if (item.Ischeckcd === true) {
         finshdata.push(item);
-
+        console.log(this.addlist);
       };
       // console.log(finshdata);
     })
@@ -112,7 +108,7 @@ divtitle.addEventListener("click", function (e) {
   }
   else if (e.target.getAttribute('id') === 'listTodo') {
     let tododata = [];
-    data.forEach(function (item, index) {
+    data.forEach(function (item) {
       // console.log(item);
 
       if (item.Ischeckcd === false) {
@@ -166,7 +162,6 @@ function addlist(ary) {
 
 function getrespons() {
   let getdata = []
-  // console.log(data);
   axios.get('https://fathomless-brushlands-42339.herokuapp.com/todo1')
     .then(function (response) {
       // console.log(response.data)
@@ -179,7 +174,8 @@ function getrespons() {
 }
 
 
-
+// 刪除所有資料用
+// axiosdelete();
 function axiosdelete() {
   axios.get('https://fathomless-brushlands-42339.herokuapp.com/todo1')
     .then(function (response) {
@@ -187,13 +183,10 @@ function axiosdelete() {
       for (let index = 1; index <= response.data.length; index++) {
         axios.delete(`https://fathomless-brushlands-42339.herokuapp.com/todo1/${index}`, {
         })
-
       }
-
     })
-
 }
-// axiosdelete();
+
 
 
 function init() {

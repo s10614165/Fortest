@@ -7,54 +7,40 @@ loginbtn.addEventListener("click", () => {
   let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
   let email = emailinput.value;
   let password = passwordinput.value;
-  let ckecklogin = 0;
-
+  let emailtext = document.querySelector('.emailtext')
+  let passwordtext = document.querySelector('.passwordtext')
   if (!emailRule.test(email)) {
-    let emailtext = document.querySelector('.emailtext')
     emailtext.style.display = "block"
     emailtext.textContent = "填入信箱有誤";
-  } else {
-    let emailtext = document.querySelector('.emailtext')
-    emailtext.style.display = "none"
-    ckecklogin++
-
-
+    return
   }
-  if (password.length < 6) {
+  emailtext.style.display = "none";
 
-    let passwordtext = document.querySelector('.passwordtext')
+
+  if (password.length < 6) {
     passwordtext.style.display = "block"
     passwordtext.textContent = "密碼長度不可小於6個字元";
+    return
 
 
-  } else {
-    let passwordtext = document.querySelector('.passwordtext')
-    passwordtext.style.display = "none"
-    ckecklogin++
+  } passwordtext.style.display = "none"
+  axios.post('https://todoo.5xcamp.us/users/sign_in', {
 
-  }
-
-  if (ckecklogin === 2) {
-    axios.post('https://todoo.5xcamp.us/users/sign_in', {
-
-      user: {
-        email: `${email}`,
-        password: `${password}`
-      }
+    user: {
+      email: `${email}`,
+      password: `${password}`
     }
-    ).then((response) => {
-      console.log(response)
-
-    }).catch(function (error) {
-      // 失敗會回傳的內容
-      let errordata = error;
-      console.log(errordata);
-      console.log(errordata.response.data.message);
-      console.log(errordata.response.data.error);
-    })
-
-
   }
+  ).then((response) => {
+    let data = response;
+    let authorization = data.headers.authorization
+    localStorage.setItem('authorization', authorization)
+    alert(data.data.message);
+    location.replace('../todolistjwt.html');
 
-
+  }).catch(function (error) {
+    // 失敗會回傳的內容
+    let errordata = error;
+    alert(errordata.response.data.message);
+  })
 })
